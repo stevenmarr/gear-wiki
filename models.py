@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String, LargeBinary
@@ -7,6 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
 from setting import DATA_BASE
+
 Base = declarative_base()
 
 
@@ -45,9 +45,6 @@ class GearModels(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(Users)
     image_path = Column(String(250))
-
-    # manual = Column(LargeBinary, nullable=True)
-
     @property
     def serialize(self):
         return {
@@ -62,6 +59,7 @@ class GearModels(Base):
 class Images(Base):
 
     __tablename__ = 'image'
+
     id = Column(Integer, primary_key=True)
     file_name = Column(String(80), nullable=False)
     path = Column(String(250), nullable=False)
@@ -74,6 +72,7 @@ class Images(Base):
 class UploadedFiles(Base):
 
     __tablename__ = 'file'
+    
     id = Column(Integer, primary_key=True)
     file_name = Column(String(80), nullable=False)
     file_type = Column(String(80), nullable=False)
