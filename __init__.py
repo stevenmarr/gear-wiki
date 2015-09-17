@@ -34,10 +34,6 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-#CLIENT_ID2 = '522438111583-kpb1j28juerv3haeaak2qpq8qshetjtv.apps.googleusercontent.com'
-#APPS_DOMAIN_NAME = 'http://0.0.0.0:8080'
-#HTTP = 'http://0.0.0.0:8080'
-
 
 #file helper functions
 def allowed_file(filename):
