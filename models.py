@@ -6,7 +6,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, LargeBinary
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-
+from setting import DATA_BASE
 Base = declarative_base()
 
 
@@ -84,5 +84,5 @@ class UploadedFiles(Base):
     user = relationship(Users)
 
 
-engine = create_engine('sqlite:///gear_wiki.db')
+engine = create_engine(DATA_BASE)
 Base.metadata.create_all(engine)
